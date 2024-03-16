@@ -13,7 +13,7 @@
     <div class="w-screen h-screen bg-warna-01">
         <img src="{{ asset('images/Logo Kryia-03.png') }}" class=" block mx-auto" alt="logo kriya indonesia">
         <div class="w-full">
-            <h1 class="text-2xl font-bold mx-auto text-center text-sky-900">Comming Soon!</h1>
+            <h1 class="text-2xl font-bold mx-auto text-center text-sky-900">Comming Soon!!</h1>
         </div>
     </div>
 
