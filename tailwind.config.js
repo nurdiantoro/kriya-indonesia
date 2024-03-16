@@ -6,12 +6,13 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    colors:{
-        'warna-01': '#0080A7',
-        'warna-02': '#17D7BD',
-        'warna-03': '#09CA74',
+    extend: {
+        colors:{
+            'warna-01': '#0080A7',
+            'warna-02': '#17D7BD',
+            'warna-03': '#09CA74',
+        },
     },
-    extend: {},
   },
   plugins: [],
 }
