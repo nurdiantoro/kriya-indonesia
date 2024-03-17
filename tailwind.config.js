@@ -11,6 +11,7 @@ export default {
             'warna-01': '#0080A7',
             'warna-02': '#17D7BD',
             'warna-03': '#09CA74',
+            'warna-04': '#EEFAFF',
         },
     },
   },

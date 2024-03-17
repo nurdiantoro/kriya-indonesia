@@ -18,4 +18,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get("/", [Frontend::class, "index"])->name("homepage");
+// FRONTEND --------------------------------------------------------------
+Route::get('/', [Frontend::class, 'index'])->name('home');
+Route::get('/exhibitor_form', [Frontend::class, 'exhibitor_form'])->name('exhibitor_form');
+Route::get('/exhibitor_list', [Frontend::class, 'exhibitor_list'])->name('exhibitor_list');
+
+Route::post('/input_exhibitor', [Frontend::class, 'input_exhibitor'])->name('input_exhibitor');
