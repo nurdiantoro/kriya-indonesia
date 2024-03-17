@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('jabatan')->nullable();
             $table->string('handphone')->nullable();
             $table->string('kategori')->nullable();
+            $table->string('nomor_stand')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

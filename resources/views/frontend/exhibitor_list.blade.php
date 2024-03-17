@@ -4,6 +4,8 @@
     <div class="flex flex-col gap-4 mb-40">
         <span class="text-center text-4xl font-bold text-warna-01">Floorplan</span>
         <img src="{{ asset('images/Floorplan.png') }}" alt="floorplan kriya indonesia" class="mx-auto h-screen">
+        <a href="{{ asset('pdf/Floorplan.pdf') }}" download="Floorplan.pdf"
+            class="rounded bg-warna-01 text-white px-4 py-2 mx-auto">Download Floorplan</a>
     </div>
 
     <div class="flex flex-col gap-4">
@@ -21,11 +23,11 @@
             <tbody>
                 @foreach ($exhibitors as $exhibitor)
                     <tr>
-                        <td>1</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $exhibitor->perusahaan }}</td>
                         <td>{{ $exhibitor->kategori }}</td>
                         <td> <a href="{{ $exhibitor->website }}" target="_blank"> {{ $exhibitor->website }}</a></td>
-                        <td>{{ $exhibitor->kategori }}</td>
+                        <td>{{ $exhibitor->nomor_stand }}</td>
                     </tr>
                 @endforeach
             </tbody>

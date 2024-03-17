@@ -10,18 +10,28 @@ class Frontend extends Controller
 {
     public function index()
     {
-        return view("frontend.homepage");
+        return view("frontend.homepage", ["title" => "Kriya Indonesia"]);
     }
 
     public function exhibitor_form()
     {
-        return view("frontend.exhibitor_form");
+        return view("frontend.exhibitor_form", ["title" => "Kriya Indonesia - Exhibitor Form"]);
     }
 
     public function exhibitor_list()
     {
         $exhibitors = Exhibitor::all();
-        return view("frontend.exhibitor_list", ["exhibitors" => $exhibitors]);
+        return view("frontend.exhibitor_list", ["title" => "Kriya Indonesia - Exhibitor List", "exhibitors" => $exhibitors]);
+    }
+
+    public function about()
+    {
+        return view("frontend.about", ["title" => "Kriya Indonesia - About"]);
+    }
+
+    public function login()
+    {
+        return view("frontend.login", ["title" => "Kriya Indonesia - Login"]);
     }
 
     public function input_exhibitor(request $request)

@@ -7,5 +7,5 @@ var allert = document.getElementById('allert');
 // Tambahkan event listener untuk tombol
 close_allert.addEventListener('click', function() {
     // Sembunyikan div
-    allert.style.display = 'none';
+    allert.style = 'transform: translate(-100%, 0px); opacity:0';
 });
