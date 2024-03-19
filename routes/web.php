@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Backend;
 use App\Http\Controllers\Frontend;
 use Illuminate\Support\Facades\Route;
@@ -25,19 +25,25 @@ Route::get('/', [Frontend::class, 'index'])->name('home');
 Route::get('/exhibitor_form', [Frontend::class, 'exhibitor_form'])->name('exhibitor_form');
 Route::get('/exhibitor_list', [Frontend::class, 'exhibitor_list'])->name('exhibitor_list');
 Route::get('/about', [Frontend::class, 'about'])->name('about');
-Route::get('/login', [Frontend::class, 'login'])->name('login');
+Route::get('/exhibitor_form-a', [Frontend::class, 'exhibitor_form_a'])->name('exhibitor_form_a');
 
 // Auth-------------------------------------------------------------------
-Route::get('/login', [Auth::class, 'login'])->name('login');
-Route::get('/register', [Auth::class, 'register'])->name('register');
-Route::get('/register_admin', [Auth::class, 'register_admin'])->name('register_admin');
-Route::get('/logout', [Auth::class, 'logout'])->name('logout');
+Route::get('/login', [AuthController::class, 'login_view'])->name('login_view');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/register_admin', [AuthController::class, 'register_admin'])->name('register_admin');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // BACKEND----------------------------------------------------------------
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin', [Backend::class, 'dashboard'])->name('dashboard')->middleware('auth');
+    Route::get('/dashboard', [Backend::class, 'dashboard'])->name('backend_dashboard');
+    Route::get('/dashboard/exhibitor', [Backend::class, 'exhibitor'])->name('backend_exhibitor');
+    Route::get('/dashboard/exhibitor/{id}', [Backend::class, 'detail_exhibitor'])->name('backend_detail_exhibitor');
+    Route::get('/export_exhibitor', [Backend::class, 'export_exhibitor'])->name('export_exhibitor');
+    Route::get('/export_exhibitor_form_a', [Backend::class, 'export_exhibitor_form_a'])->name('export_exhibitor_form_a');
 });
 
-// Create
+// Post
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/input_admin', [AuthController::class, 'input_admin'])->name('input_admin');
 Route::post('/input_exhibitor', [Frontend::class, 'input_exhibitor'])->name('input_exhibitor');
-Route::post('/input_admin', [Auth::class, 'input_admin'])->name('input_admin');
+Route::post('/input_exhibitor_form_a', [Frontend::class, 'input_exhibitor_form_a'])->name('input_exhibitor_form_a');

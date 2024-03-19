@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Exhibitor;
+use App\Models\Exhibitor_form_a;
 use Illuminate\Http\Request;
 
 
@@ -29,9 +30,9 @@ class Frontend extends Controller
         return view("frontend.about", ["title" => "Kriya Indonesia - About"]);
     }
 
-    public function login()
+    public function exhibitor_form_a()
     {
-        return view("frontend.login", ["title" => "Kriya Indonesia - Login"]);
+        return view("frontend.form_a", ["title" => "Kriya Indonesia - Form A"]);
     }
 
     public function input_exhibitor(request $request)
@@ -46,6 +47,25 @@ class Frontend extends Controller
             "jabatan" => $request->input("jabatan"),
             "handphone" => $request->input("handphone"),
             "kategori" => $request->input("kategori"),
+        ]);
+        if ($input) {
+            return redirect()->back()->with('success', 'Exhibitor has been submitted successfully!');
+        } else {
+        }
+    }
+    public function input_exhibitor_form_a(request $request)
+    {
+        $input = Exhibitor_form_a::create([
+            "perusahaan" => $request->input("perusahaan"),
+            "alamat" => $request->input("alamat"),
+            "telp_kantor" => $request->input("telp_kantor"),
+            "email" => $request->input("email"),
+            "website" => $request->input("website"),
+            "pic" => $request->input("pic"),
+            "jabatan" => $request->input("jabatan"),
+            "handphone" => $request->input("handphone"),
+            "kategori" => $request->input("kategori"),
+            "nomor_stand" => $request->input("nomor_stand"),
         ]);
         if ($input) {
             return redirect()->back()->with('success', 'Exhibitor has been submitted successfully!');

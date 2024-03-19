@@ -19,5 +19,7 @@ class Exhibitor extends Model
         'jabatan',
         'handphone',
         'kategori',
+        'no_stand',
+        'status',
     ];
 }

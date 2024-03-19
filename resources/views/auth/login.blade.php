@@ -5,12 +5,6 @@
         @csrf
         <h1 class="text-3xl font-bold text-center text-warna-01 mb-4">Login</h1>
         <div>
-            <label for="name" class="mb-1 block">Name</label>
-            <input type="text"
-                class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
-                id="name" name="name">
-        </div>
-        <div>
             <label for="email" class="mb-1 block">Email</label>
             <input type="text"
                 class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
