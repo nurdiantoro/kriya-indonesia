@@ -9,8 +9,7 @@
     <title>{{ $title }}</title>
 
     <link rel="icon" type="image/x-icon" href="{{ asset('images/Logo Kryia-02.png') }}">
-    {{-- <link href="{{ asset('build/assets/app-C-0uXjBn.css') }}" rel="stylesheet"> --}}
-    @vite('resources/css/app.css')
+    @include('css')
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
