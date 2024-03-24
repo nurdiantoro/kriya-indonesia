@@ -72,4 +72,9 @@ class Frontend extends Controller
         } else {
         }
     }
+
+    public function profile()
+    {
+        return 'profile';
+    }
 }

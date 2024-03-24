@@ -28,19 +28,27 @@ Route::get('/about', [Frontend::class, 'about'])->name('about');
 Route::get('/exhibitor_form-a', [Frontend::class, 'exhibitor_form_a'])->name('exhibitor_form_a');
 
 // Auth-------------------------------------------------------------------
-Route::get('/login', [AuthController::class, 'login_view'])->name('login_view');
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::get('/register_admin', [AuthController::class, 'register_admin'])->name('register_admin');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [AuthController::class, 'login_view'])->name('login_view');
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::get('/register_admin', [AuthController::class, 'register_admin'])->name('register_admin');
+});
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // BACKEND----------------------------------------------------------------
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [Backend::class, 'dashboard'])->name('backend_dashboard');
-    Route::get('/dashboard/exhibitor', [Backend::class, 'exhibitor'])->name('backend_exhibitor');
-    Route::get('/dashboard/exhibitor/{id}', [Backend::class, 'detail_exhibitor'])->name('backend_detail_exhibitor');
-    Route::get('/export_exhibitor', [Backend::class, 'export_exhibitor'])->name('export_exhibitor');
-    Route::get('/export_exhibitor_form_a', [Backend::class, 'export_exhibitor_form_a'])->name('export_exhibitor_form_a');
+Route::middleware('auth')->group(function () {
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/dashboard', [Backend::class, 'dashboard'])->name('backend_dashboard');
+        Route::get('/dashboard/exhibitor', [Backend::class, 'exhibitor'])->name('backend_exhibitor');
+        Route::get('/dashboard/exhibitor/{id}', [Backend::class, 'detail_exhibitor'])->name('backend_detail_exhibitor');
+        Route::get('/export_exhibitor', [Backend::class, 'export_exhibitor'])->name('export_exhibitor');
+        Route::get('/export_exhibitor_form_a', [Backend::class, 'export_exhibitor_form_a'])->name('export_exhibitor_form_a');
+    });
+    Route::middleware('end_user')->group(function () {
+        Route::get('/profile', [Frontend::class, 'profile'])->name('profile');
+    });
 });
+
 
 // Post
 Route::post('/login', [AuthController::class, 'login'])->name('login');

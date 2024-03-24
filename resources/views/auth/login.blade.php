@@ -1,6 +1,6 @@
 @include('auth.template.header')
 <div class="h-screen w-screen bg-cover flex justify-center items-center"
-    style="background-image:url('{{ asset('images/Header Homepage-01.png') }}') ">
+    style="background-image:url('{{ asset('images/Header Homepage-01.jpg') }}') ">
     <form action="{{ url('login') }}" method="POST" class="rounded w-1/3 bg-white shadow-md p-4">
         @csrf
         <h1 class="text-3xl font-bold text-center text-warna-01 mb-4">Login</h1>

@@ -1,19 +1,21 @@
 @include('frontend.template.header')
 
 {{-- Header --}}
-<div class="h-screen w-full bg-cover bg-center flex justify-center items-center"
-    style="background-image: url('{{ asset('images/Header Homepage-01.png') }}')">
-    <div class="md:w-1/2 z-10 flex flex-col gap-4">
+<div class="md:h-screen w-full bg-cover bg-center flex justify-center items-center relative"
+    style="background-image: url('{{ asset('images/Header Homepage-01.jpg') }}')">
+    <div class="md:w-1/2 z-10 flex flex-col gap-4 pt-40">
         <div>
-            <h2 class="text-center font-bold text-4xl text-white">WELCOME TO</h2>
-            <h1 class="text-center font-bold text-5xl text-white">KRIYA INDONESIA 2024</h1>
-            <h2 class="text-center font-bold text-4xl text-white">10 - 14 JULI 2024</h2>
+            <h2 class="text-center font-bold text-3xl md:text-4xl text-white">WELCOME TO</h2>
+            <h1 class="text-center font-bold text-4xl md:text-5xl text-white">KRIYA INDONESIA 2024</h1>
+            <h2 class="text-center font-bold text-3xl md:text-4xl text-white">10 - 14 JULI 2024</h2>
         </div>
-        <p class="text-center text-white mt-4">Pameraan “Kriya Indonesia 2024” menampilkan keaneka-ragaman produk kriya
-            berbasiss umber daya alam dan budaya Nusantara sebagai keunggulan dan keunikan yang semakin dicari dan
+        <p class=" text-justify md:text-center text-white mt-4 px-4 md:px-0">Pameraan “Kriya Indonesia 2024” menampilkan
+            keaneka-ragaman
+            produk kriya
+            berbasis- umber daya alam dan budaya Nusantara sebagai keunggulan dan keunikan yang semakin dicari dan
             dicinta oleh masyarakat dari dalam dan luar negeri. Paduan kreatifitas dan inovasi dengan sentuhan budaya
             dan nuansa etnik dari setiap kategori produk kriya berpotensi merebut ceruk pasar lokal dan global.</p>
-        <div class="flex flex-col md:flex-row items-center justify-center mt-4 gap-3">
+        <div class="flex flex-row items-center justify-center mt-4 gap-3 mb-20">
             <a href="http://" class="bg-warna-01 rounded-md px-4 py-2 text-white font-bold">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-4 inline opacity-80">
                     <path fill="currentcolor"
@@ -31,10 +33,10 @@
             </a>
         </div>
     </div>
-    <img src="{{ asset('images/Divider-01.png') }}" class="absolute -bottom-1 md:-bottom-10 w-full z-0">
+    <img src="{{ asset('images/Divider-01.png') }}" class="absolute -bottom-2 md:-bottom-10 w-full z-0">
 </div>
 
-<div class="px-4 md:px-40">
+<div class="px-4 block md:px-40">
     <div class="mb-80 mt-10">
         <h3 class="text-center font-bold text-warna-01 text-3xl">Product Gallery</h3>
         {{-- <div class="grid md:grid-cols-2 md:grid-rows-1">
@@ -116,10 +118,11 @@
 </div>
 
 {{-- Footer & Logo --}}
-<div class="relative pt-80 pb-32 bg-warna-04 md:px-40">
-    <img src="{{ asset('images/Divider-02.png') }}" class="w-full absolute top-0 left-0">
+<div class="relative pt-80 md:pb-32 bg-warna-04 block md:px-40">
+    <img src="{{ asset('images/Divider-02.png') }}" class="w-full absolute top-0 left-0 hidden md:block">
+    <img src="{{ asset('images/Divider-02-mobile.png') }}" class="w-full absolute top-0 left-0 md:hidden">
     <h3 class="text-center font-bold text-warna-01 text-3xl mb-20">Kriya Indonesia</h3>
-    <table class="md:mx-auto text-center mb-20">
+    <table class="mx-auto text-center mb-20">
         <tr>
             <td class="px-10 md:px-20">Hosted By :</td>
             <td class="px-10 md:px-20">Organized By :</td>
@@ -134,7 +137,40 @@
     </table>
 
     <span class="text-center block mb-6">Supported By :</span>
-    <table class="mx-auto text-center">
+
+    <div class="flex flex-row flex-wrap justify-center px-4 text-center md:hidden">
+        <div class="basis-1/2 px-2 my-4 md:basis-1/5">
+            <img class="h-auto w-auto max-w-24 max-h-20 mx-auto"
+                src="{{ asset('images/Logo Supported/Logo Kemenperin.png') }}" alt="Logo YRKI">
+            <span class="text-[0.6rem] block md:px-4">Ministry of INDUSTRY REPUBLIC OF INDONESIA</span>
+        </div>
+        <div class="basis-1/2 px-2 my-4 md:basis-1/5">
+            <img class="h-auto w-auto max-w-24 max-h-20 mx-auto"
+                src="{{ asset('images/Logo Supported/Logo Kemendag.png') }}" alt="Logo YRKI">
+            <span class="text-[0.6rem] block md:px-4">Ministry of Trade REPUBLIC OF INDONESIA</span>
+        </div>
+        <div class="basis-1/2 px-2 my-4 md:basis-1/5">
+            <img class="h-auto w-auto max-w-24 max-h-20 mx-auto"
+                src="{{ asset('images/Logo Supported/Logo KemenkopUKM.png') }}" alt="Logo YRKI">
+            <span class="text-[0.6rem] block md:px-4">Ministry of Tourism and Creative Economy REPUBLIC OF
+                INDONESIA</span>
+        </div>
+        <div class="basis-1/2 px-2 my-4 md:basis-1/5">
+            <img class="h-auto w-auto max-w-24 max-h-20 mx-auto"
+                src="{{ asset('images/Logo Supported/Logo Kemenparekraf.png') }}" alt="Logo YRKI">
+            <span class="text-[0.6rem] block md:px-4">Ministry of Cooperatives and Small and Medium
+                Enterprises
+                REPUBLIC OF
+                INDONESIA</span>
+        </div>
+        <div class="basis-1/2 px-2 my-4 md:basis-1/5">
+            <img class="h-auto w-auto max-w-24 max-h-20 mx-auto"
+                src="{{ asset('images/Logo Supported/Logo Kemen BUMN.png') }}" alt="Logo YRKI">
+            <span class="text-[0.6rem] block md:px-4">Ministry OF STATE-OWNED ENTERPRISES REPUBLIC OF
+                INDONESIA</span>
+        </div>
+    </div>
+    <table class="mx-auto text-center md:block hidden">
         <tr>
             <td class="w-1/5"><img class="h-auto w-auto max-w-24 max-h-20 mx-auto"
                     src="{{ asset('images/Logo Supported/Logo Kemenperin.png') }}" alt="Logo YRKI"></td>

@@ -20,9 +20,13 @@ class AuthController extends Controller
             "password" => $request->password,
         ];
         if (Auth::attempt($data_login)) {
-            return redirect('dashboard');
+            if (Auth::user()->role_id == 1) {
+                return redirect('dashboard');
+            } else {
+                return redirect('profile');
+            }
         } else {
-            return "gagal";
+            return "Login gagal";
         }
     }
     public function logout()
@@ -37,21 +41,28 @@ class AuthController extends Controller
     }
     public function input_admin(Request $request)
     {
-        $qr_code = mt_rand(1000000000, 9999999999);
-        if ($this->cek_qr($qr_code)) {
-            $qr_code = mt_rand(1000000000, 9999999999);
-        }
-
-        $input = User::create([
-            "name" => $request->input("name"),
-            "email" => $request->input("email"),
-            "password" => $request->input("password"),
-            "role_id" => 1,
-            "qr_code" => $qr_code,
+        $validasi_email = $request->validate([
+            'email' => ['unique:users'],
         ]);
-        if ($input) {
-            return redirect()->route("login");
+        if ($validasi_email) {
+            $qr_code = mt_rand(1000000000, 9999999999);
+            if ($this->cek_qr($qr_code)) {
+                $qr_code = mt_rand(1000000000, 9999999999);
+            }
+
+            $input = User::create([
+                "name" => $request->input("name"),
+                "email" => $request->input("email"),
+                "password" => $request->input("password"),
+                "role_id" => 1,
+                "qr_code" => $qr_code,
+            ]);
+            if ($input) {
+                return redirect()->route("login");
+            } else {
+            }
         } else {
+            return 'validasi false';
         }
     }
 

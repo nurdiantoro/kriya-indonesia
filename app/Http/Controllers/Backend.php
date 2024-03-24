@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\ExportExhibitor;
 use App\Exports\ExportExhibitorFormA;
-use App\Models\Exhibitor;
 use App\Models\Exhibitor_form_a;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -17,6 +15,9 @@ class Backend extends Controller
     }
     public function dashboard()
     {
+        if (auth()->user()->role_id != "1") {
+            abort(403);
+        }
         $user = Auth::user();
         return view("backend.dashboard", ["user" => $user]);
     }

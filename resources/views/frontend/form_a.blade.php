@@ -30,33 +30,35 @@
     @endif
 
     <div class="bg-gray-400 flex flex-col justify-center items-center bg-cover bg-fixed"
-        style="background-image:url('{{ asset('images/Header Homepage-01.png') }}') ">
-        <img src="{{ asset('images/Logo Kryia-03.png') }}" alt="Logo Kriya Indonesia" class="w-auto h-40 mt-20">
+        style="background-image:url('{{ asset('images/Header Homepage-01.jpg') }}') ">
+        <a href="{{ url('') }}"><img src="{{ asset('images/Logo Kryia-03.png') }}" alt="Logo Kriya Indonesia"
+                class="w-auto h-40 mt-20"></a>
         <form action="{{ url('input_exhibitor_form_a') }}"
-            class="w-1/3 mx-auto flex flex-col gap-6 mt-10 bg-white shadow-md p-4 rounded-lg" method="POST">
+            class="w-full md:w-1/3 md:mb-40 mx-auto flex flex-col gap-6 mt-10 bg-white shadow-md p-4 rounded-lg"
+            method="POST">
             @csrf
             <h1 class="font-bold text-warna-01 text-center text-4xl">Form A Exhibitor</h1>
             <div>
                 <label for="perusahaan" class="mb-1 block">Perusahaan/Instansi</label>
-                <input type="text"
+                <input required type="text"
                     class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
                     id="perusahaan" name="perusahaan">
             </div>
             <div>
                 <label for="alamat" class="mb-1 block">Alamat Kantor</label>
-                <input type="text"
+                <input required type="text"
                     class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
                     id="alamat" name="alamat">
             </div>
             <div>
                 <label for="telp_kantor" class="mb-1 block">Telepon Kantor</label>
-                <input type="text"
+                <input required type="text"
                     class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
                     id="telp_kantor" name="telp_kantor">
             </div>
             <div>
                 <label for="email" class="mb-1 block">E-mail</label>
-                <input type="email"
+                <input required type="email"
                     class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
                     id="email" name="email">
             </div>
@@ -68,37 +70,37 @@
             </div>
             <div>
                 <label for="pic" class="mb-1 block">Penanggungjawab/PIC</label>
-                <input type="text"
+                <input required type="text"
                     class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
                     id="pic" name="pic">
             </div>
             <div>
                 <label for="jabatan" class="mb-1 block">Jabatan</label>
-                <input type="text"
+                <input required type="text"
                     class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
                     id="jabatan" name="jabatan">
             </div>
             <div>
                 <label for="handphone" class="mb-1 block">Nomor Handphone</label>
-                <input type="text"
+                <input required type="text"
                     class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
                     id="handphone" name="handphone">
             </div>
             <div>
                 <label for="kategori" class="mb-1 block">Jenis Produk</label>
-                <input type="text"
+                <input required type="text"
                     class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
                     id="kategori" name="kategori">
             </div>
             <div>
                 <label for="nomor_stand" class=" block">Nomor Stan</label>
                 <small class="mb-1 block">Contoh : AS101</small>
-                <input type="text"
+                <input required type="text"
                     class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
                     id="nomor_stand" name="nomor_stand">
             </div>
             <div class="flex flex-row gap-2 items-start">
-                <input type="checkbox" name="agreement" id="agreement" class="h-16 w-16">
+                <input required type="checkbox" name="agreement" id="agreement" class="h-16 w-16">
                 <label for="agreement" class="mb-1 block">Dengan mengisi formulir diatas maka saya menyatakan berminat
                     dengan pameran KRIYA INDONESIA 2024, yang selanjutnya dapat dikirimkan infomasi terkait pendaftaran
                     saya

@@ -1,6 +1,26 @@
 @include('auth.template.header')
+
+@if ($errors->any())
+    <div class="top-0 right-1/2 translate-x-1/2 p-4 fixed duration-1000" id="allert">
+        <div class="bg-warna-04 shadow-md p-4 rounded-md border border-gray-300 flex flex-row items-center gap-2">
+            <ul class="text-red-700">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <button id="close_allert" class="ml-2">
+                <svg class="inline w-4 h-6 text-gray-500" viewBox="0 0 384 512">
+                    <path fill="currentcolor"
+                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+@endif
+
+
 <div class="h-screen w-screen bg-cover flex flex-col justify-center items-center"
-    style="background-image:url('{{ asset('images/Header Homepage-01.png') }}') ">
+    style="background-image:url('{{ asset('images/Header Homepage-01.jpg') }}') ">
     <form action="{{ url('input_admin') }}" method="POST" class="rounded w-1/3 bg-white shadow-md p-4">
         @csrf
         <h1 class="text-3xl font-bold text-center text-warna-01 mb-4">REGISTER ADMIN</h1>
