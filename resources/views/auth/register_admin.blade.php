@@ -19,9 +19,9 @@
 @endif
 
 
-<div class="h-screen w-screen bg-cover flex flex-col justify-center items-center"
+<div class="h-screen w-screen bg-cover flex flex-col justify-center items-center px-4"
     style="background-image:url('{{ asset('images/Header Homepage-01.jpg') }}') ">
-    <form action="{{ url('input_admin') }}" method="POST" class="rounded w-1/3 bg-white shadow-md p-4">
+    <form action="{{ url('input_admin') }}" method="POST" class="rounded md:w-1/3 bg-white shadow-md p-4">
         @csrf
         <h1 class="text-3xl font-bold text-center text-warna-01 mb-4">REGISTER ADMIN</h1>
         <div>

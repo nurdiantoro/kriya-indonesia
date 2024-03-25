@@ -12,11 +12,11 @@
         <p class=" text-justify md:text-center text-white mt-4 px-4 md:px-0">Pameraan “Kriya Indonesia 2024” menampilkan
             keaneka-ragaman
             produk kriya
-            berbasis- umber daya alam dan budaya Nusantara sebagai keunggulan dan keunikan yang semakin dicari dan
+            berbasis sumber daya alam dan budaya Nusantara sebagai keunggulan dan keunikan yang semakin dicari dan
             dicinta oleh masyarakat dari dalam dan luar negeri. Paduan kreatifitas dan inovasi dengan sentuhan budaya
             dan nuansa etnik dari setiap kategori produk kriya berpotensi merebut ceruk pasar lokal dan global.</p>
         <div class="flex flex-row items-center justify-center mt-4 gap-3 mb-20">
-            <a href="http://" class="bg-warna-01 rounded-md px-4 py-2 text-white font-bold">
+            <a href="{{ url('register') }}" class="bg-warna-01 rounded-md px-4 py-2 text-white font-bold">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-4 inline opacity-80">
                     <path fill="currentcolor"
                         d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z" />
@@ -51,7 +51,7 @@
     <div class="my-40 md:my-80">
         <h3 class="text-center font-bold text-warna-01 text-3xl mb-10">Highlight Exhibitors</h3>
         <div class="flex flex-row flex-wrap gap-20 justify-center">
-            <div class="h-36">
+            {{-- <div class="h-36">
                 <img src="{{ asset('images/Sample Logo/Asset 1.png') }}" alt="logo exhibitor" class="h-full">
             </div>
             <div class="h-36">
@@ -62,7 +62,7 @@
             </div>
             <div class="h-36">
                 <img src="{{ asset('images/Sample Logo/Asset 4.png') }}" alt="logo exhibitor" class="h-full">
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="my-40 md:my-80">
@@ -71,7 +71,7 @@
             <div class="flex flex-col flex-wrap m-auto text-center md:w-2/3 gap-2">
                 <span class="font-bold text-2xl text-warna-01">Visit our social media</span>
                 <div class="grid grid-cols-2 gap-4">
-                    <a href="#"
+                    <a href="https://www.instagram.com/kriya.id2024/" target="blank"
                         class="hover:shadow-md bg-warna-01 rounded-lg px-4 py-2 text-white flex flex-row gap-1 items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="text-white h-4 inline">
                             <path fill="currentcolor"
@@ -79,7 +79,7 @@
                         </svg>
                         Kriya Indonesia
                     </a>
-                    <a href="#"
+                    <a href="https://www.tiktok.com/@kriyaindonesia" target="blank"
                         class="hover:shadow-md bg-warna-01 rounded-lg px-4 py-2 text-white flex flex-row gap-1 items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="text-white h-4 inline">
                             <path fill="currentcolor"
@@ -88,10 +88,10 @@
                         <span>Kriya Indonesia</span>
                     </a>
                 </div>
-                <span class="text-gray-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit in fugiat
-                    quidem. Aut qui
-                    aperiam culpa ab illum sunt, repellat vero sit pariatur aliquam eos accusantium ea. Quam, provident
-                    natus?</span>
+                <span class="text-gray-700">Jangan lewatkan momen-momen seru dan konten eksklusif kami! Kunjungi halaman
+                    Instagram dan TikTok kami untuk melihat lebih banyak foto, video, dan cerita di balik layar.
+                    Dapatkan wawasan yang lebih dalam tentang apa yang terjadi di balik layar dan ikuti
+                    perjalanan kami dalam menciptakan pengalaman yang tak terlupakan.</span>
             </div>
             <div class="w-2/3 m-auto">
                 <img src="{{ asset('images/Instagram.png') }}" alt="banner instagram" class="w-full">
@@ -110,7 +110,7 @@
                 <span class="text-gray-700">Jl. Gatot Subroto, Senayan, Kecamatan Tanah Abang, Kota Jakarta Pusat,
                     Daerah Khusus Ibukota
                     Jakarta 10270</span>
-                <a href="https://maps.app.goo.gl/bFpfF4S8tczWhu5f7"
+                <a href="https://maps.app.goo.gl/bFpfF4S8tczWhu5f7" target="blank"
                     class="bg-warna-01 rounded-lg px-4 py-2 text-white mr-auto">Get Direction</a>
             </div>
         </div>

@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Exports\ExportExhibitor;
 use App\Exports\ExportExhibitorFormA;
 use App\Models\Exhibitor_form_a;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\Console\Input\Input;
 
 class Backend extends Controller
 {
@@ -33,6 +36,17 @@ class Backend extends Controller
         $exhibitor = Exhibitor_form_a::where('id', $id)->first();
         $user = Auth::user();
         return view('backend.exhibitor_detail', ["user" => $user, 'exhibitor' => $exhibitor]);
+    }
+
+    public function change_exhibitor(Request $request, $id)
+    {
+        return redirect()->back()->with('success', '');
+    }
+
+    public function delete_exhibitor($id)
+    {
+        Exhibitor_form_a::where('id', $id)->delete();
+        return redirect('dashboard/exhibitor/');
     }
 
     public function export_exhibitor()

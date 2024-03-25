@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Exhibitor;
 use App\Models\Exhibitor_form_a;
+use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class Frontend extends Controller
 {
@@ -21,8 +22,8 @@ class Frontend extends Controller
 
     public function exhibitor_list()
     {
-        $exhibitors = Exhibitor::all();
-        return view("frontend.exhibitor_list", ["title" => "Kriya Indonesia - Exhibitor List", "exhibitors" => $exhibitors]);
+        // $exhibitors = Exhibitor::all();
+        return view("frontend.exhibitor_list", ["title" => "Kriya Indonesia - Exhibitor List"]);
     }
 
     public function about()
@@ -59,13 +60,18 @@ class Frontend extends Controller
             "perusahaan" => $request->input("perusahaan"),
             "alamat" => $request->input("alamat"),
             "telp_kantor" => $request->input("telp_kantor"),
+            "no_npwp" => $request->input("no_npwp"),
+            "alamat_npwp" => $request->input("alamat_npwp"),
             "email" => $request->input("email"),
             "website" => $request->input("website"),
             "pic" => $request->input("pic"),
             "jabatan" => $request->input("jabatan"),
             "handphone" => $request->input("handphone"),
             "kategori" => $request->input("kategori"),
+            "bidang_usaha" => $request->input("bidang_usaha"),
+            "hall" => 'Assembly Hall',
             "nomor_stand" => $request->input("nomor_stand"),
+            "fascia" => $request->input("fascia"),
         ]);
         if ($input) {
             return redirect()->back()->with('success', 'Exhibitor has been submitted successfully!');
@@ -75,6 +81,7 @@ class Frontend extends Controller
 
     public function profile()
     {
-        return 'profile';
+        $user = Auth::user();
+        return view('frontend.profile', ['title' => 'Profile', 'user' => $user]);
     }
 }

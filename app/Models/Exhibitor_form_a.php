@@ -13,13 +13,18 @@ class Exhibitor_form_a extends Model
         'perusahaan',
         'alamat',
         'telp_kantor',
+        'no_npwp',
+        'alamat_npwp',
         'email',
         'website',
         'pic',
         'jabatan',
         'handphone',
         'kategori',
+        'bidang_usaha',
+        'hall',
         'nomor_stand',
+        'fascia',
         'status',
     ];
 }

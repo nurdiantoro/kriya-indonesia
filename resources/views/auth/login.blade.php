@@ -1,7 +1,11 @@
 @include('auth.template.header')
-<div class="h-screen w-screen bg-cover flex justify-center items-center"
+<div class="min-h-screen w-screen bg-cover flex flex-col  items-center px-4"
     style="background-image:url('{{ asset('images/Header Homepage-01.jpg') }}') ">
-    <form action="{{ url('login') }}" method="POST" class="rounded w-1/3 bg-white shadow-md p-4">
+
+    <a href="{{ url('') }}"><img src="{{ asset('images/Logo Kryia-03.png') }}" alt="Logo Kriya Indonesia"
+            class="w-auto h-40 mt-20"></a>
+
+    <form action="{{ url('login') }}" method="POST" class="rounded w-full md:w-1/3 bg-white shadow-md p-4 mt-10">
         @csrf
         <h1 class="text-3xl font-bold text-center text-warna-01 mb-4">Login</h1>
         <div>
@@ -17,8 +21,13 @@
                 id="password" name="password">
         </div>
         <input type="hidden" name="role_id" value="1">
+        @if (session('pesan_error'))
+            <small class="text-red-700">The email or password you used is incorrect</small>
+        @endif
         <button type="submit"
             class="px-4 py-2 text-white text-center mx-auto mt-4 rounded bg-warna-01 block w-1/2">Submit</button>
+        <a href="{{ url('register') }}" class="mt-4 text-warna-01 text-center block">Belum punya akun?</a>
     </form>
+
 </div>
 @include('auth.template.footer')

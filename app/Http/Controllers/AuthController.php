@@ -26,7 +26,7 @@ class AuthController extends Controller
                 return redirect('profile');
             }
         } else {
-            return "Login gagal";
+            return redirect()->back()->with('pesan_error', 'The email or password you used is incorrect');
         }
     }
     public function logout()
@@ -34,6 +34,39 @@ class AuthController extends Controller
         Auth::logout();
         return redirect("login");
     }
+
+    public function register_view()
+    {
+        $title = 'Registration';
+        return view("auth.register", ["title" => $title]);
+    }
+    public function register(Request $request)
+    {
+        $validasi_email = $request->validate([
+            'email' => ['unique:users'],
+        ]);
+        if ($validasi_email) {
+            $qr_code = mt_rand(1000000000, 9999999999);
+            if ($this->cek_qr($qr_code)) {
+                $qr_code = mt_rand(1000000000, 9999999999);
+            }
+
+            $input = User::create([
+                "name" => $request->input("name"),
+                "email" => $request->input("email"),
+                "password" => $request->input("password"),
+                "role_id" => 2,
+                "qr_code" => $qr_code,
+            ]);
+            if ($input) {
+                return redirect()->route("login");
+            } else {
+            }
+        } else {
+            return redirect()->back()->with('pesan_error', 'registrasi error');
+        }
+    }
+
     public function register_admin()
     {
         $title = "Register Admin";
@@ -60,6 +93,7 @@ class AuthController extends Controller
             if ($input) {
                 return redirect()->route("login");
             } else {
+                return redirect()->back()->with('pesan_error', 'registrasi error');
             }
         } else {
             return 'validasi false';
