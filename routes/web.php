@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Backend;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\Frontend;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -63,9 +64,14 @@ Route::middleware('auth')->group(function () {
     });
     Route::middleware('end_user')->group(function () {
         Route::get('/profile', [Frontend::class, 'profile'])->name('profile');
+        Route::get('/profile/change', [Frontend::class, 'profile_change'])->name('profile_change');
+        Route::get('/profile/password', [Frontend::class, 'password_change'])->name('password_change');
+        Route::post('/profile/change', [Frontend::class, 'profile_change_edit'])->name('profile_change_edit');
+        Route::post('/profile/password', [Frontend::class, 'password_change_update'])->name('password_change_update');
     });
 });
 
+Route::get('/test_email', [EmailController::class, 'send_email'])->name('send_email');
 
 // Post
 Route::post('/login', [AuthController::class, 'login'])->name('login');

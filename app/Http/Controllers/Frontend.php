@@ -7,6 +7,7 @@ use App\Models\Exhibitor_form_a;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class Frontend extends Controller
 {
@@ -83,5 +84,43 @@ class Frontend extends Controller
     {
         $user = Auth::user();
         return view('frontend.profile', ['title' => 'Profile', 'user' => $user]);
+    }
+
+    public function profile_change()
+    {
+        $user = Auth::user();
+        return view('frontend.profile_change', ['title' => 'Profile', 'user' => $user]);
+    }
+
+    public function profile_change_edit(request $request)
+    {
+        $id = Auth::user()->id;
+        User::where('id', $id)->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+        ]);
+        return redirect()->route('profile')->with('pesan', 'Profile berhasil diubah');
+    }
+
+    public function password_change()
+    {
+        return view('frontend.change_password', ['title' => 'Change Password']);
+    }
+
+    public function password_change_update(request $request)
+    {
+        $validasi_password = $request->validate([
+            'password' => ['same:confirm_password'],
+        ]);
+
+        if ($validasi_password) {
+            $id = Auth::user()->id;
+            User::where('id', $id)->update([
+                'password' => Hash::make($request->input('password')),
+            ]);
+            return redirect()->route('profile')->with('pesan', 'Password berhasil diubah');
+        } else {
+            return redirect()->back()->with('pesan', 'Password yang anda masukan tidak sesuai');
+        }
     }
 }

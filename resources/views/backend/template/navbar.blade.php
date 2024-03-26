@@ -25,13 +25,23 @@
     <!-- Nav Item - Charts -->
     <li class="nav-item">
         <a class="nav-link" href="{{ url('dashboard/exhibitor') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-table"></i>
             <span>Data Exhibitor</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ url('exhibitor_form-a') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-align-left"></i>
             <span>Form A</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('dashboard/qr_check') }}">
+            <i class="fas fa-qrcode"></i>
+            <span>Scan Barcode</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('dashboard/visitor') }}">
+            <i class="fas fa-users"></i>
+            <span>Data Visitor</span></a>
     </li>
 
 </ul>

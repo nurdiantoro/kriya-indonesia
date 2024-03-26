@@ -96,7 +96,7 @@ class AuthController extends Controller
                 return redirect()->back()->with('pesan_error', 'registrasi error');
             }
         } else {
-            return 'validasi false';
+            return redirect()->back()->with('pesan_error', 'Email sudah terdaftar');;
         }
     }
 
