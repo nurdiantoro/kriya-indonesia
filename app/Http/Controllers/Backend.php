@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\ExportExhibitor;
 use App\Exports\ExportExhibitorFormA;
+use App\Models\Contact;
 use App\Models\Exhibitor_form_a;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,11 +19,14 @@ class Backend extends Controller
     }
     public function dashboard()
     {
-        if (auth()->user()->role_id != "1") {
-            abort(403);
-        }
         $user = Auth::user();
         return view("backend.dashboard", ["user" => $user]);
+    }
+    public function contact()
+    {
+        $contacts = Contact::all();
+        $user = Auth::user();
+        return view("backend.contact", ["user" => $user, "contacts" => $contacts]);
     }
 
     public function exhibitor()

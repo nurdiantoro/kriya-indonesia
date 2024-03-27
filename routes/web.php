@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Backend;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\Frontend;
 use Illuminate\Support\Facades\Artisan;
@@ -40,6 +41,7 @@ Route::get('/clear-cache', function () {
 Route::get('/', [Frontend::class, 'index'])->name('home');
 Route::get('/exhibitor_form', [Frontend::class, 'exhibitor_form'])->name('exhibitor_form');
 Route::get('/exhibitor_list', [Frontend::class, 'exhibitor_list'])->name('exhibitor_list');
+Route::get('/contact', [Frontend::class, 'contact'])->name('contact');
 Route::get('/about', [Frontend::class, 'about'])->name('about');
 Route::get('/exhibitor_form-a', [Frontend::class, 'exhibitor_form_a'])->name('exhibitor_form_a');
 
@@ -59,8 +61,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/exhibitor/{id}', [Backend::class, 'detail_exhibitor'])->name('backend_detail_exhibitor');
         Route::get('/dashboard/exhibitor/change/{id}', [Backend::class, 'change_exhibitor'])->name('backend_change_exhibitor');
         Route::get('/dashboard/exhibitor/delete/{id}', [Backend::class, 'delete_exhibitor'])->name('backend_delete_exhibitor');
+        Route::get('/dashboard/contact', [Backend::class, 'contact'])->name('backend_contact');
         Route::get('/export_exhibitor', [Backend::class, 'export_exhibitor'])->name('export_exhibitor');
         Route::get('/export_exhibitor_form_a', [Backend::class, 'export_exhibitor_form_a'])->name('export_exhibitor_form_a');
+
+        Route::post('/dashboard/contact/store', [ContactController::class, 'store'])->name('dashboard_contact_store');
+        Route::post('/dashboard/contact/update/', [ContactController::class, 'update'])->name('dashboard_contact_update');
+        Route::post('/dashboard/contact/destroy/{contact}', [ContactController::class, 'destroy'])->name('dashboard_contact_destroy');
     });
     Route::middleware('end_user')->group(function () {
         Route::get('/profile', [Frontend::class, 'profile'])->name('profile');

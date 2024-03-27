@@ -20,6 +20,9 @@
             <a href="{{ url('exhibitor_list') }}"
                 class="{{ request()->is('exhibitor_list') ? 'font-bold text-white' : 'text-sky-100' }}  hover:text-white my-2 px-4 text-sm">Exhibitor
                 List</a>
+            <a href="{{ url('contact') }}"
+                class="{{ request()->is('contact') ? 'font-bold text-white' : 'text-sky-100' }}  hover:text-white my-2 px-4 text-sm">Contact
+                Us</a>
             <a href="{{ url('about') }}"
                 class="{{ request()->is('about') ? 'font-bold text-white' : 'text-sky-100' }}  hover:text-white my-2 px-4 text-sm">About</a>
 
