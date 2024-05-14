@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .tombol-1 {
+      @apply border-[1px] py-2 px-3 border-warna-01 text-warna-01 duration-100 rounded-md hover:bg-warna-01 hover:text-white;
+    }
+    .tombol-2 {
+      @apply border-[1px] py-2 px-3 border-gray-600 text-gray-600 duration-100 rounded-md hover:bg-gray-600 hover:text-white;
+    }
+  }
