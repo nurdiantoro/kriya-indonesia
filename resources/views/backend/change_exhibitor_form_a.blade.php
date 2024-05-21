@@ -72,6 +72,15 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Provinsi</td>
+                    <td>:</td>
+                    <td>
+                        <input
+                            class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
+                            type="text" name="provinsi" id="provinsi" value="{{ $exhibitor->provinsi }}">
+                    </td>
+                </tr>
+                <tr>
                     <td>Email</td>
                     <td>:</td>
                     <td>

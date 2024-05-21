@@ -40,7 +40,13 @@
                     class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
                     id="kota" name="kota">
             </div>
-
+            <div>
+                <label for="provinsi" class="mb-1 block req">Provinsi <small
+                        class="text-red-700">*</small></label></label>
+                <input type="text" required
+                    class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
+                    id="provinsi" name="provinsi">
+            </div>
             <div>
                 <label for="telp_kantor" class="mb-1 block">Telepon Kantor <small class="text-red-700">*</small></label>
                 <input required type="text"
@@ -97,7 +103,8 @@
                     id="kategori" name="kategori">
             </div>
             <div>
-                <label for="bidang_usaha" class="mb-1 block">Bidang Usaha <small class="text-red-700">*</small></label>
+                <label for="bidang_usaha" class="mb-1 block">Bidang Usaha <small
+                        class="text-red-700">*</small></label>
                 <select required
                     class="border rounded-md px-2 py-2 w-full bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
                     id="bidang_usaha" name="bidang_usaha">

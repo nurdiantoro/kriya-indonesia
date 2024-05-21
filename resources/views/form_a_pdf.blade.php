@@ -92,7 +92,6 @@
 
 
     <?php
-    // echo date_format($exhibitor->created_at, 'Y-m-d');
     function tanggal_indo($tanggal_inggris)
     {
         $tanggal = date_format($tanggal_inggris, 'Y-m-d');
@@ -124,7 +123,7 @@
             <table>
                 <tr>
                     <td>
-                        <span class=" required">Nama Perusahaan/Instansi</span>
+                        <span class="required">Nama Perusahaan/Instansi</span>
                     </td>
                 </tr>
                 <tr>
@@ -132,17 +131,25 @@
                 </tr>
             </table>
         </div>
-        <div class="row">
-            <p class=" required">Alamat Kantor</p>
-            <p class="value">{{ $exhibitor->alamat }}</p>
-        </div>
+        <table>
+            <tr>
+                <td class="required">Alamat Kantor</td>
+                <td class="required">Kota</td>
+                <td class="required">Provinsi</td>
+            </tr>
+            <tr>
+                <td class="value">{{ $exhibitor->alamat }}</td>
+                <td class="value">{{ $exhibitor->kota }}</td>
+                <td class="value">{{ $exhibitor->provinsi }}</td>
+            </tr>
+        </table>
         <table style="margin-bottom: 2px">
             <tr>
-                <td class=" required">Telepon Kantor</td>
+                <td class="required">Telepon Kantor</td>
                 <td> </td>
-                <td class=" required">E-mail</td>
+                <td class="required">E-mail</td>
                 <td> </td>
-                <td class=" required">Nomor NPWP/KTP</td>
+                <td class="required">Nomor NPWP/KTP</td>
             </tr>
             <tr>
                 <td class="value">{{ $exhibitor->telp_kantor }}</td>
@@ -154,7 +161,7 @@
         </table>
         <table>
             <tr>
-                <td class=" required">Alamat NPWP/KTP</td>
+                <td class="required">Alamat NPWP/KTP</td>
             </tr>
             <tr>
                 <td class="value">{{ $exhibitor->alamat_npwp ? $exhibitor->alamat_npwp : '-' }}</td>
@@ -277,8 +284,7 @@
                     <p>{!! $exhibitor->kota ? '<u>' . $exhibitor->kota . '</u>' : '_________________' !!} , <u>
                             {{ tanggal_indo($exhibitor->created_at) }}</u></p>
                     <p style="margin-bottom: 70px">Hormat kami</p>
-                    <p style="margin: 0px">____________________________</p>
-                    <p style="margin: 0px">Nama Lengkap & Tanda Tangan</p>
+                    <p style="margin: 0px"><u>{{ $exhibitor->pic }}</u></p>
                 </div>
             </td>
         </tr>
