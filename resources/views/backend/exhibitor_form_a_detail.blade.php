@@ -78,6 +78,14 @@
                 </td>
             </tr>
             <tr>
+                <td>Kota</td>
+                <td>:</td>
+                <td>
+                    <input disabled class="w-full border border-white bg-white rounded-md p-2" type="text"
+                        name="kota" id="kota" value="{{ $exhibitor->kota }}">
+                </td>
+            </tr>
+            <tr>
                 <td>Email</td>
                 <td>:</td>
                 <td>

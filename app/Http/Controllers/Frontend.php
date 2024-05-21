@@ -65,6 +65,7 @@ class Frontend extends Controller
     }
     public function input_exhibitor_form_a(request $request)
     {
+        // dd($request->all());
         $input = Exhibitor_form_a::create($request->all());
         if ($input) {
             return redirect()->back()->with(['success' => 'Exhibitor has been submitted successfully!', 'pdf_id' => $input->id]);

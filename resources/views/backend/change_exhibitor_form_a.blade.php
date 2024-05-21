@@ -63,6 +63,15 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Kota</td>
+                    <td>:</td>
+                    <td>
+                        <input
+                            class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
+                            type="text" name="kota" id="kota" value="{{ $exhibitor->kota }}">
+                    </td>
+                </tr>
+                <tr>
                     <td>Email</td>
                     <td>:</td>
                     <td>
@@ -180,7 +189,8 @@
                     <td>
                         <input
                             class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
-                            type="text" name="nomor_stand" id="nomor_stand" value="{{ $exhibitor->nomor_stand }}">
+                            type="text" name="nomor_stand" id="nomor_stand"
+                            value="{{ $exhibitor->nomor_stand }}">
                     </td>
                 </tr>
                 <tr>

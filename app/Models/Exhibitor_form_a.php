@@ -31,6 +31,7 @@ class Exhibitor_form_a extends Model
         'harga',
         'total_harga',
         'sales',
+        'kota',
         'status',
     ];
     protected $appends = [

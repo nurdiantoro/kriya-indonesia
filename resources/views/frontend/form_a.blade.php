@@ -35,6 +35,13 @@
                     id="alamat" name="alamat">
             </div>
             <div>
+                <label for="kota" class="mb-1 block req">Kota <small class="text-red-700">*</small></label></label>
+                <input type="text" required
+                    class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"
+                    id="kota" name="kota">
+            </div>
+
+            <div>
                 <label for="telp_kantor" class="mb-1 block">Telepon Kantor <small class="text-red-700">*</small></label>
                 <input required type="text"
                     class="w-full border rounded-md p-2 bg-gray-100 focus:bg-white focus:outline-warna-01 focus:outline-1"

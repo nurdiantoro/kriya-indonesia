@@ -90,6 +90,32 @@
     style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important; font-family: 'Open Sans', Helvetica, Arial, sans-serif; font-weight: 400;">
     <img src="{{ public_path('images/header-form-a.jpg') }}" style="width: 100%; height: auto">
 
+
+    <?php
+    // echo date_format($exhibitor->created_at, 'Y-m-d');
+    function tanggal_indo($tanggal_inggris)
+    {
+        $tanggal = date_format($tanggal_inggris, 'Y-m-d');
+    
+        $bulan = [
+            1 => 'Januari',
+            2 => 'Februari',
+            3 => 'Maret',
+            4 => 'April',
+            5 => 'Mei',
+            6 => 'Juni',
+            7 => 'Juli',
+            8 => 'Agustus',
+            9 => 'September',
+            10 => 'Oktober',
+            11 => 'November',
+            12 => 'Desember',
+        ];
+        $split = explode('-', $tanggal);
+        echo $split[2] . ' ' . $bulan[(int) $split[1]] . ' ' . $split[0];
+    }
+    ?>
+
     <div class="document">
         <p>Kami yang bertanda tangan di bawah ini, menyatakan ikut berpartisipasi sebagai peserta Pameran Kriya
             Indonesia tahun 2024 dan menyetujui semua ketentuan yang telah ditetapkan oleh pihak Penyelenggara.</p>
@@ -247,7 +273,9 @@
             </td>
             <td>
                 <div class="">
-                    <p>______________ , ___________________ 2024</p>
+
+                    <p>{!! $exhibitor->kota ? '<u>' . $exhibitor->kota . '</u>' : '_________________' !!} , <u>
+                            {{ tanggal_indo($exhibitor->created_at) }}</u></p>
                     <p style="margin-bottom: 70px">Hormat kami</p>
                     <p style="margin: 0px">____________________________</p>
                     <p style="margin: 0px">Nama Lengkap & Tanda Tangan</p>
