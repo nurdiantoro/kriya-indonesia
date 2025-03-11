@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('nomor_stand')->nullable();
             $table->string('fascia')->nullable();
             $table->string('status')->nullable();
+            $table->string('sales')->nullable();
             $table->timestamps();
         });
     }

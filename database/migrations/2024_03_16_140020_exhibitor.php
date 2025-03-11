@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('kategori')->nullable();
             $table->string('nomor_stand')->nullable();
             $table->string('status')->nullable();
+            $table->string('sales')->nullable();
             $table->timestamps();
         });
     }

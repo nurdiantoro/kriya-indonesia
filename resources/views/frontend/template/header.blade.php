@@ -49,7 +49,7 @@
     <title>{{ $title }}</title>
 
     <link rel="icon" type="image/x-icon" href="{{ asset('images/Logo Kryia-02.png') }}">
-    @include('css')
+    @vite('resources/css/app.css')
 
     {{-- FONT --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">

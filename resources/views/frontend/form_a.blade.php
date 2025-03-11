@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/x-icon" href="{{ asset('images/Logo Kryia-02.png') }}">
     <title>{{ $title }}</title>
-    @include('css')
+    @vite('resources/css/app.css')
 </head>
 
 <body>

@@ -26,7 +26,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('exhibitor_form_a', function (Blueprint $table) {
-            //
+            $table->dropColumn('panjang');
+            $table->dropColumn('lebar');
+            $table->dropColumn('luas');
+            $table->dropColumn('harga');
+            $table->dropColumn('total_harga');
         });
     }
 };
